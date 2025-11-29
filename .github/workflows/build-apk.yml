@@ -22,9 +22,9 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Build Release APK
+      - name: Build Release APK with Gradle
         run: |
-          ./gradlew assembleRelease --no-daemon
+          gradle --no-daemon --project-cache-dir .gradle assembleRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
